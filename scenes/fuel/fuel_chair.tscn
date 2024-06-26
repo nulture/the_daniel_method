@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwu4xut20k5yu"]
+
+[ext_resource type="PackedScene" uid="uid://byvh5qmfm735q" path="res://scenes/fuel/fuel_base.tscn" id="1_w7nk5"]
+[ext_resource type="PackedScene" uid="uid://mywgc1vq1fwi" path="res://assets/models/sm_chair.glb" id="2_y56j0"]
+[ext_resource type="Material" uid="uid://q0yybvm08sa" path="res://assets/materials/m_wood_planks.tres" id="3_xg4bp"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2bdt6"]
+points = PackedVector3Array(-0.472956, 0.002065, 0.472091, -0.399624, 0.002065, -0.472091, 0.472956, 0.002065, 0.472091, -0.472956, 0.813179, 0.422923, -0.399624, 1.76137, -0.413218, 0.399531, 0.002065, -0.472091, 0.472956, 0.813179, 0.422923, 0.399531, 1.76137, -0.413218)
+
+[node name="fuel_chair" instance=ExtResource("1_w7nk5")]
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0.5, 0)
+
+[node name="sm_chair" parent="." index="0" instance=ExtResource("2_y56j0")]
+
+[node name="chair" parent="sm_chair" index="0"]
+surface_material_override/0 = ExtResource("3_xg4bp")
+
+[node name="collider" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_2bdt6")
+
+[node name="fuel" parent="." index="3"]
+fuel_amount = 4.0
+
+[editable path="sm_chair"]

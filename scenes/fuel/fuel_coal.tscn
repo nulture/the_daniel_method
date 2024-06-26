@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://clbxywmk15a6q"]
+
+[ext_resource type="PackedScene" uid="uid://byvh5qmfm735q" path="res://scenes/fuel/fuel_base.tscn" id="1_n6aim"]
+[ext_resource type="PackedScene" uid="uid://blstl6w4kbnha" path="res://assets/models/sm_coal.glb" id="2_ejugh"]
+[ext_resource type="Material" uid="uid://81vvlxbeibel" path="res://assets/materials/m_gravelcoal.tres" id="3_0w00s"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k2urg"]
+points = PackedVector3Array(-0.15778, 0.0384794, -0.447666, -0.41848, 0.00267562, -0.12264, -0.436579, 0.21766, -0.260246, -0.114165, 0.25719, -0.393084, 0.573784, 0.0742832, -0.0740182, 0.236436, -0.271604, -0.0507716, -0.114165, -0.157793, 0.406326, -0.322448, -0.0112571, 0.223589, 0.0339876, 0.555933, -0.00759944, 0.275304, 0.468449, -0.0548589, 0.224172, 0.305226, 0.422249, 0.280249, -0.217331, 0.33863)
+
+[node name="fuel_coal" instance=ExtResource("1_n6aim")]
+
+[node name="sm_coal" parent="." index="0" instance=ExtResource("2_ejugh")]
+
+[node name="coal" parent="sm_coal" index="0"]
+surface_material_override/0 = ExtResource("3_0w00s")
+
+[node name="collider" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_k2urg")
+
+[node name="fuel" parent="." index="4"]
+fuel_amount = 8.0
+
+[editable path="sm_coal"]

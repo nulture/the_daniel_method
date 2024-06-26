@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://crhdniwd8dp00"]
+
+[ext_resource type="Script" path="res://scripts/editor/random_scene_picker.gd" id="1_dthlj"]
+[ext_resource type="PackedScene" uid="uid://d067y0dcuxkka" path="res://scenes/buildings/tree_0.tscn" id="2_6wl2s"]
+[ext_resource type="PackedScene" uid="uid://cu4gsdl6jn02e" path="res://scenes/buildings/tree_1.tscn" id="3_nm3as"]
+
+[node name="tree_random" type="Node3D"]
+script = ExtResource("1_dthlj")
+scene_pool = Array[PackedScene]([ExtResource("2_6wl2s"), ExtResource("3_nm3as")])
+_serialized_hash = 1691721052

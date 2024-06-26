@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://wo1i1n0sni2k"]
+
+[ext_resource type="PackedScene" uid="uid://cwfvctgjnr6e1" path="res://scenes/fuel/fuel_gasoline.tscn" id="1_an23e"]
+
+[node name="fuel_gasoline_infinite" instance=ExtResource("1_an23e")]
+
+[node name="fuel" parent="." index="3"]
+fuel_amount = 1e+09
+
+[editable path="sm_gasoline"]

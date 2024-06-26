@@ -1,0 +1,22 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://b8qsb7wdw23v5"]
+
+[ext_resource type="AudioStream" uid="uid://cevs0sgu4stb0" path="res://assets/audio/foley/step_snow_00.ogg" id="1_hk5qf"]
+[ext_resource type="AudioStream" uid="uid://dup4nu0hbtms6" path="res://assets/audio/foley/step_snow_01.ogg" id="2_l348k"]
+[ext_resource type="AudioStream" uid="uid://clewml4xq4jhs" path="res://assets/audio/foley/step_snow_02.ogg" id="3_rlrtf"]
+[ext_resource type="AudioStream" uid="uid://b0a2yimpjmgyd" path="res://assets/audio/foley/step_snow_03.ogg" id="4_pqf4y"]
+[ext_resource type="AudioStream" uid="uid://bfflqcbmdygm7" path="res://assets/audio/foley/step_snow_04.ogg" id="5_15t7d"]
+
+[resource]
+random_pitch = 1.1
+random_volume_offset_db = 2.0
+streams_count = 5
+stream_0/stream = ExtResource("1_hk5qf")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_l348k")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_rlrtf")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_pqf4y")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_15t7d")
+stream_4/weight = 1.0

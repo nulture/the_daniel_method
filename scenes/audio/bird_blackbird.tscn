@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctc4dptbi6q5o"]
+
+[ext_resource type="PackedScene" uid="uid://bymc7ohsbs4v8" path="res://scenes/audio/random_foley.tscn" id="1_ps6gd"]
+[ext_resource type="AudioStream" uid="uid://dym5q8h080u4u" path="res://assets/audio/foley/bird_grackle_pool.tres" id="2_fnafo"]
+
+[node name="bird_blackbird" instance=ExtResource("1_ps6gd")]
+stream = ExtResource("2_fnafo")
+bus = &"summer_sfx"
+max_repeat_time = 20.0
+
+[node name="timer" parent="." index="0"]
+wait_time = 7.717

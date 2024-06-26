@@ -1,0 +1,137 @@
+[gd_scene load_steps=18 format=3 uid="uid://b6rvr68ancoci"]
+
+[ext_resource type="Script" path="res://scripts/fireplace.gd" id="1_efj15"]
+[ext_resource type="Script" path="res://scripts/time_area.gd" id="2_kqs2b"]
+[ext_resource type="PackedScene" uid="uid://b58r3ulywlgau" path="res://assets/models/sm_fireplace.glb" id="3_a7mq2"]
+[ext_resource type="PackedScene" uid="uid://bfqhvmtyxeayj" path="res://scenes/flare.tscn" id="3_hjuxq"]
+[ext_resource type="Material" uid="uid://busnrq2h4a31y" path="res://assets/materials/m_wood_bark.tres" id="4_1aqcq"]
+[ext_resource type="Material" uid="uid://dln85ggd1s0wm" path="res://assets/materials/m_ring_particle.tres" id="4_qgr8s"]
+[ext_resource type="Script" path="res://scripts/fire_ring_particles.gd" id="5_ltq8u"]
+[ext_resource type="Material" uid="uid://c35wwim5q0v5k" path="res://assets/materials/m_stone_cobble.tres" id="5_rehxb"]
+[ext_resource type="AudioStream" uid="uid://chb61dmuesahc" path="res://assets/audio/foley/fire_loop.ogg" id="7_4hewq"]
+[ext_resource type="AudioStream" uid="uid://dc1k6ahlstbnh" path="res://assets/audio/foley/fire_blast.tres" id="8_olive"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bugmb"]
+height = 4.85069
+radius = 1.04564
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_emkxp"]
+radius = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_q5oky"]
+height = 0.5
+radius = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ay7di"]
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 0.5
+direction = Vector3(0, -2, 0)
+initial_velocity_max = 1.0
+gravity = Vector3(0, 1.5, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_tw8mi"]
+material = ExtResource("4_qgr8s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mm52t"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 1.0
+direction = Vector3(0, 1, 0)
+spread = 5.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+damping_min = 0.25
+damping_max = 0.75
+hue_variation_max = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_crfmr"]
+material = ExtResource("4_qgr8s")
+size = Vector2(0.4, 0.4)
+
+[node name="fireplace" type="Node3D"]
+script = ExtResource("1_efj15")
+min_warm_radius = 1.0
+decay_per_heat = 0.005
+decay_per_tick = 0.075
+follow_alpha = 2.0
+
+[node name="player_blocker" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="player_blocker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.21787, 0)
+shape = SubResource("CylinderShape3D_bugmb")
+
+[node name="time_area" type="Area3D" parent="." node_paths=PackedStringArray("shape")]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+script = ExtResource("2_kqs2b")
+shape = NodePath("collision_shape_3d")
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="time_area"]
+shape = SubResource("SphereShape3D_emkxp")
+
+[node name="deposit_area" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="deposit_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("CylinderShape3D_q5oky")
+
+[node name="sm_fireplace" parent="." instance=ExtResource("3_a7mq2")]
+
+[node name="fireplace" parent="sm_fireplace" index="0"]
+surface_material_override/0 = ExtResource("4_1aqcq")
+surface_material_override/1 = ExtResource("5_rehxb")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3257, 0)
+light_color = Color(1, 0.807843, 0.529412, 1)
+light_energy = 4.0
+omni_range = 10.0
+
+[node name="flare" parent="." instance=ExtResource("3_hjuxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.36716, 0)
+
+[node name="flame_particles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.696089, 0)
+amount = 12
+lifetime = 1.25
+process_material = SubResource("ParticleProcessMaterial_ay7di")
+draw_pass_1 = SubResource("QuadMesh_tw8mi")
+
+[node name="ring_particles" type="GPUParticles3D" parent="."]
+visible = false
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_mm52t")
+draw_pass_1 = SubResource("QuadMesh_crfmr")
+script = ExtResource("5_ltq8u")
+
+[node name="loop" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_4hewq")
+volume_db = -12.0
+unit_size = 5.0
+autoplay = true
+bus = &"sfx"
+
+[node name="blast" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_olive")
+volume_db = -4.0
+unit_size = 5.0
+max_polyphony = 2
+bus = &"sfx"
+
+[connection signal="added_fuel" from="." to="blast" method="play" binds= [0.0]]
+[connection signal="body_entered" from="time_area" to="time_area" method="_on_body_entered"]
+[connection signal="body_exited" from="time_area" to="time_area" method="_on_body_exited"]
+[connection signal="body_entered" from="deposit_area" to="." method="_on_deposit_area_body_entered"]
+
+[editable path="sm_fireplace"]

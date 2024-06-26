@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5v6oiigg5jwp"]
+
+[ext_resource type="PackedScene" uid="uid://cs7vafwrtla2c" path="res://assets/models/sm_tunnel.glb" id="1_vpw55"]
+[ext_resource type="Script" path="res://scripts/time_body.gd" id="2_r832p"]
+[ext_resource type="PackedScene" uid="uid://cuyxq3xvemq1m" path="res://assets/models/sm_tunnel_cavein.glb" id="2_yhqi3"]
+[ext_resource type="Material" uid="uid://c35wwim5q0v5k" path="res://assets/materials/m_stone_cobble.tres" id="3_xxv32"]
+[ext_resource type="PackedScene" uid="uid://bfqhvmtyxeayj" path="res://scenes/flare.tscn" id="4_442tr"]
+[ext_resource type="Material" uid="uid://bk3swyiks4osn" path="res://assets/materials/m_ice.tres" id="5_cd3fr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_24p2f"]
+size = Vector3(1.76855, 4, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o7ftn"]
+size = Vector3(0.60199, 4.625, 4.01282)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hnl6u"]
+points = PackedVector3Array(2.86276, 5.31582, -3.12698, 2.86276, 0, -3.12698, -0.293997, 5.31582, -3.87146, 2.52476, 5.31582, -1.0388, 2.52476, 0, -1.0388, -0.293997, 0, -3.87146, -3.50813, 5.31582, -2.10022, -2.26151, 5.31582, -1.0388, -2.26151, 0, -1.0388, -3.50813, 0, -2.10022)
+
+[node name="tunnel" type="Area3D"]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_24p2f")
+
+[node name="walls" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28677, 2.1875, 0.998596)
+shape = SubResource("BoxShape3D_o7ftn")
+
+[node name="collision_shape_3d_2" type="CollisionShape3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.287, 2.188, 0.999)
+shape = SubResource("BoxShape3D_o7ftn")
+
+[node name="sm_tunnel" parent="walls" instance=ExtResource("1_vpw55")]
+
+[node name="tunnel" parent="walls/sm_tunnel" index="0"]
+surface_material_override/0 = ExtResource("3_xxv32")
+
+[node name="cavein" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+collision_layer = 9
+collision_mask = 0
+script = ExtResource("2_r832p")
+is_enabled_in_winter = true
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="cavein"]
+shape = SubResource("ConvexPolygonShape3D_hnl6u")
+
+[node name="sm_tunnel_cavein" parent="cavein" instance=ExtResource("2_yhqi3")]
+
+[node name="cavein" parent="cavein/sm_tunnel_cavein" index="0"]
+surface_material_override/0 = ExtResource("5_cd3fr")
+
+[node name="omni_light_3d" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53674e-07, 1.90955, -0.00320005)
+light_color = Color(1, 1, 0.647059, 1)
+light_energy = 0.5
+omni_range = 4.03021
+
+[node name="flare" parent="omni_light_3d" instance=ExtResource("4_442tr")]
+
+[editable path="walls/sm_tunnel"]
+[editable path="cavein/sm_tunnel_cavein"]

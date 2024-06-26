@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvf3ix46s4t74"]
+
+[ext_resource type="PackedScene" uid="uid://b57u5ooaoun0c" path="res://assets/models/sm_handle.glb" id="1_k1sfj"]
+[ext_resource type="Material" uid="uid://bwi8ckcl0h4so" path="res://assets/materials/m_metal_floor.tres" id="2_o4h1b"]
+[ext_resource type="Script" path="res://scripts/interactable.gd" id="3_gwmgj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e4uww"]
+size = Vector3(1, 0.359619, 1)
+
+[node name="handle" type="RigidBody3D"]
+collision_layer = 32
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0, 0.5)
+
+[node name="collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+shape = SubResource("BoxShape3D_e4uww")
+
+[node name="sm_handle" parent="." instance=ExtResource("1_k1sfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="handle" parent="sm_handle" index="0"]
+surface_material_override/0 = ExtResource("2_o4h1b")
+
+[node name="interactable" type="Node" parent="."]
+script = ExtResource("3_gwmgj")
+tags = Array[StringName]([&"grab"])
+
+[editable path="sm_handle"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bweghonwmrhbq"]
+
+[ext_resource type="PackedScene" uid="uid://cdiower0i1fi6" path="res://scenes/fuel/fuel_log.tscn" id="1_evttt"]
+
+[node name="log_stack" type="Node3D"]
+
+[node name="fuel_log_20" parent="." instance=ExtResource("1_evttt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.896359)
+
+[node name="fuel_log_21" parent="." instance=ExtResource("1_evttt")]
+
+[node name="fuel_log_22" parent="." instance=ExtResource("1_evttt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77793, 0.536342)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd0h1kx7igd4u"]
+
+[ext_resource type="PackedScene" uid="uid://eo55ynrr31yh" path="res://scenes/shoeprint_l.tscn" id="1_rajqn"]
+[ext_resource type="Material" uid="uid://beh6eeqctaebh" path="res://assets/materials/m_shoeprint_r.tres" id="2_0qoa2"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_x2nv1"]
+material = ExtResource("2_0qoa2")
+size = Vector2(-0.65, 0.65)
+
+[node name="shoeprint_r" instance=ExtResource("1_rajqn")]
+mesh = SubResource("QuadMesh_x2nv1")

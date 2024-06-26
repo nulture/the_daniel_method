@@ -1,0 +1,8 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://dc1k6ahlstbnh"]
+
+[ext_resource type="AudioStream" uid="uid://bxbn5aw21htxs" path="res://assets/audio/foley/fire_blast_00.ogg" id="1_uplkf"]
+
+[resource]
+streams_count = 1
+stream_0/stream = ExtResource("1_uplkf")
+stream_0/weight = 1.0

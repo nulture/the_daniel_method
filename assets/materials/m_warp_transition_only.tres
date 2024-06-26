@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bjknhmg2qdqke"]
+
+[ext_resource type="Shader" uid="uid://cy8wuma7do0oh" path="res://assets/shaders/psx_unary_timed.tres" id="1_iq66h"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_iq66h")
+shader_parameter/scale = 0.001
+shader_parameter/always_show_ring = true
+shader_parameter/visible_winter = false
+shader_parameter/visible_summer = false
+shader_parameter/triplanar_scale = Vector3(1, 1, 1)
+shader_parameter/triplanar_offset = null
+shader_parameter/triplanar_sharpness = 0.5

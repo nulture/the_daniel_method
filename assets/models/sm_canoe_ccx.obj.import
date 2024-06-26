@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c5e2gfsgiwb77"
+path="res://.godot/imported/sm_canoe_ccx.obj-aab616a2f78cf256ae5caafb7b34eb15.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sm_canoe_ccx.obj-aab616a2f78cf256ae5caafb7b34eb15.mesh"]
+
+source_file="res://assets/models/sm_canoe_ccx.obj"
+dest_files=["res://.godot/imported/sm_canoe_ccx.obj-aab616a2f78cf256ae5caafb7b34eb15.mesh", "res://.godot/imported/sm_canoe_ccx.obj-aab616a2f78cf256ae5caafb7b34eb15.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bymc7ohsbs4v8"]
+
+[ext_resource type="Script" path="res://scripts/random_foley.gd" id="1_fplkj"]
+
+[node name="random_foley" type="AudioStreamPlayer3D" node_paths=PackedStringArray("timer")]
+bus = &"sfx"
+area_mask = 0
+script = ExtResource("1_fplkj")
+timer = NodePath("timer")
+
+[node name="timer" type="Timer" parent="."]
+process_callback = 0
+
+[connection signal="finished" from="." to="." method="_on_finished"]
+[connection signal="timeout" from="timer" to="." method="play" binds= [0.0]]

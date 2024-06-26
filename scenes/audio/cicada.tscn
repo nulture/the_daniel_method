@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://5d5p0gf6hqi8"]
+
+[ext_resource type="PackedScene" uid="uid://bymc7ohsbs4v8" path="res://scenes/audio/random_foley.tscn" id="1_jclun"]
+[ext_resource type="AudioStream" uid="uid://d0cw36d8lprtc" path="res://assets/audio/foley/cicada.ogg" id="2_f8vyc"]
+
+[node name="cicada" instance=ExtResource("1_jclun")]
+stream = ExtResource("2_f8vyc")
+bus = &"summer_sfx"
+
+[node name="timer" parent="." index="0"]
+wait_time = 52.7705

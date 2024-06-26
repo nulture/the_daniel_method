@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://j8pgw14l5wep"]
+
+[ext_resource type="PackedScene" uid="uid://b7fblfyk6rx8h" path="res://assets/models/sm_axe.glb" id="1_awpsb"]
+[ext_resource type="Material" uid="uid://bw8o3ohfn6rsi" path="res://assets/materials/m_arms.tres" id="2_gy48w"]
+
+[node name="axe" instance=ExtResource("1_awpsb")]
+
+[node name="Cube" parent="." index="0"]
+material_override = ExtResource("2_gy48w")

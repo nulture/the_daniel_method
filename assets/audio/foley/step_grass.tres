@@ -1,0 +1,25 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=7 format=3 uid="uid://epw6fy8g4gtf"]
+
+[ext_resource type="AudioStream" uid="uid://cdlmj2dkf8q1x" path="res://assets/audio/foley/step_grass_00.ogg" id="1_3xrb2"]
+[ext_resource type="AudioStream" uid="uid://d14ddk77fkyyc" path="res://assets/audio/foley/step_grass_01.ogg" id="2_m3qns"]
+[ext_resource type="AudioStream" uid="uid://d0ogeqmg42amc" path="res://assets/audio/foley/step_grass_02.ogg" id="3_f6pan"]
+[ext_resource type="AudioStream" uid="uid://bycudrk4cbq7q" path="res://assets/audio/foley/step_grass_03.ogg" id="4_6drxf"]
+[ext_resource type="AudioStream" uid="uid://b4mw81vxn6owl" path="res://assets/audio/foley/step_grass_04.ogg" id="5_h1tqc"]
+[ext_resource type="AudioStream" uid="uid://csv5ebagyt402" path="res://assets/audio/foley/step_grass_05.ogg" id="6_hun38"]
+
+[resource]
+random_pitch = 1.1
+random_volume_offset_db = 2.0
+streams_count = 6
+stream_0/stream = ExtResource("1_3xrb2")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_m3qns")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_f6pan")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_6drxf")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_h1tqc")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_hun38")
+stream_5/weight = 1.0

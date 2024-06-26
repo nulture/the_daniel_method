@@ -1,0 +1,27 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=8 format=3 uid="uid://dwwfqno73d457"]
+
+[ext_resource type="AudioStream" uid="uid://dvn7vl2tsd7pv" path="res://assets/audio/foley/hit_thump_00.ogg" id="1_hh5lr"]
+[ext_resource type="AudioStream" uid="uid://b8bpvuxh1vd3q" path="res://assets/audio/foley/hit_thump_01.ogg" id="2_ia0qw"]
+[ext_resource type="AudioStream" uid="uid://dee4sqgmbnwe" path="res://assets/audio/foley/hit_thump_02.ogg" id="3_bqnvi"]
+[ext_resource type="AudioStream" uid="uid://3lwxtpi5k7bh" path="res://assets/audio/foley/hit_thump_03.ogg" id="4_mqyw3"]
+[ext_resource type="AudioStream" uid="uid://tde5mpkm2bvy" path="res://assets/audio/foley/hit_thump_04.ogg" id="5_hs65t"]
+[ext_resource type="AudioStream" uid="uid://bt51oyk5uhywd" path="res://assets/audio/foley/hit_thump_05.ogg" id="6_d0dda"]
+[ext_resource type="AudioStream" uid="uid://bbbkmpp0o3dg4" path="res://assets/audio/foley/hit_thump_06.ogg" id="7_w63hl"]
+
+[resource]
+random_pitch = 1.1
+streams_count = 7
+stream_0/stream = ExtResource("1_hh5lr")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_ia0qw")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_bqnvi")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_mqyw3")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_hs65t")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_d0dda")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("7_w63hl")
+stream_6/weight = 1.0

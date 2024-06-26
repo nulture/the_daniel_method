@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://hrw36xsc3k6o"]
+
+[ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_2cedm"]
+[ext_resource type="Script" path="res://scripts/camera_input.gd" id="2_fdb0r"]
+[ext_resource type="Script" path="res://scripts/interaction_sensor.gd" id="3_k6b6g"]
+[ext_resource type="Script" path="res://scripts/item_holder.gd" id="4_lgyy3"]
+[ext_resource type="Material" uid="uid://bjknhmg2qdqke" path="res://assets/materials/m_warp_transition_only.tres" id="5_0rw1k"]
+[ext_resource type="PackedScene" uid="uid://b1te23wkk5s4v" path="res://assets/models/sm_warp_mask.glb" id="5_estsv"]
+[ext_resource type="Script" path="res://scripts/shoeprinter.gd" id="5_r6wwg"]
+[ext_resource type="PackedScene" uid="uid://cd0h1kx7igd4u" path="res://scenes/shoeprint_r.tscn" id="6_vobde"]
+[ext_resource type="PackedScene" uid="uid://eo55ynrr31yh" path="res://scenes/shoeprint_l.tscn" id="7_2v15i"]
+[ext_resource type="PackedScene" uid="uid://bu653gq3d5wf0" path="res://scenes/ui/crosshair.tscn" id="8_8driw"]
+[ext_resource type="PackedScene" uid="uid://pruwvrh1k8cb" path="res://scenes/ui/sensitivity_ui.tscn" id="9_il0q1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ryk43"]
+
+[node name="pawn" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 4
+collision_mask = 23
+floor_max_angle = 0.959931
+script = ExtResource("1_2cedm")
+step_interval = 1.75
+speed = 3.5
+
+[node name="shape" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ryk43")
+
+[node name="camera_root" type="Node3D" parent="." node_paths=PackedStringArray("yaw_node", "anim_player", "sensitivity_label")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+script = ExtResource("2_fdb0r")
+yaw_node = NodePath("..")
+stick_speed = 2.52
+mouse_speed = 0.125
+anim_player = NodePath("../canvas/sensitivity_ui/animation_player")
+sensitivity_label = NodePath("../canvas/sensitivity_ui/label")
+
+[node name="camera" type="Camera3D" parent="camera_root"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.05)
+current = true
+fov = 90.0
+
+[node name="interaction_sensor" type="RayCast3D" parent="camera_root/camera" node_paths=PackedStringArray("ui_label", "ui_anim_player")]
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 34
+script = ExtResource("3_k6b6g")
+ui_label = NodePath("../../../canvas/crosshair/hex/label")
+ui_anim_player = NodePath("../../../canvas/crosshair/anim_player")
+
+[node name="item_holder" type="Node3D" parent="camera_root/camera" node_paths=PackedStringArray("sensor", "collision_change_timer")]
+transform = Transform3D(1, 0, 0, 0, 0.927686, -0.37336, 0, 0.37336, 0.927686, 0, -0.911969, -1.04322)
+script = ExtResource("4_lgyy3")
+sensor = NodePath("../interaction_sensor")
+collision_change_timer = NodePath("../collision_change_timer")
+
+[node name="collision_change_timer" type="Timer" parent="camera_root/camera"]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
+
+[node name="sm_warp_mask" parent="camera_root/camera" instance=ExtResource("5_estsv")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="warp_mask" parent="camera_root/camera/sm_warp_mask" index="0"]
+surface_material_override/0 = ExtResource("5_0rw1k")
+
+[node name="shoe_l" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.9, 0)
+hit_back_faces = false
+script = ExtResource("5_r6wwg")
+prefab = ExtResource("7_2v15i")
+
+[node name="shoe_r" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.9, 0)
+hit_back_faces = false
+script = ExtResource("5_r6wwg")
+prefab = ExtResource("6_vobde")
+
+[node name="canvas" type="CanvasLayer" parent="."]
+
+[node name="sensitivity_ui" parent="canvas" instance=ExtResource("9_il0q1")]
+
+[node name="crosshair" parent="canvas" instance=ExtResource("8_8driw")]
+
+[node name="label" parent="canvas/crosshair/hex" index="1"]
+visible = false
+
+[connection signal="step_l" from="." to="shoe_l" method="create_shoeprint"]
+[connection signal="step_r" from="." to="shoe_r" method="create_shoeprint"]
+[connection signal="timeout" from="camera_root/camera/collision_change_timer" to="camera_root/camera/item_holder" method="_on_collision_change_timer_timeout"]
+
+[editable path="camera_root/camera/sm_warp_mask"]
+[editable path="canvas/sensitivity_ui"]
+[editable path="canvas/crosshair"]

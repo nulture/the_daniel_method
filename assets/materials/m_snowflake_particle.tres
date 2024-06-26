@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://pw1smauudafa"]
+
+[ext_resource type="Shader" uid="uid://csskkbdc3aok7" path="res://assets/shaders/psx_billboard_timed.tres" id="1_hspsx"]
+[ext_resource type="Texture2D" uid="uid://cs3ndw68xlfev" path="res://assets/textures/t_snowflake.png" id="2_d14md"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_hspsx")
+shader_parameter/scale = 0.04
+shader_parameter/face_camera = true
+shader_parameter/visible_in_winter = true
+shader_parameter/visible_in_summer = false
+shader_parameter/triplanar_scale = Vector3(1, 1, 1)
+shader_parameter/triplanar_offset = null
+shader_parameter/triplanar_sharpness = 0.5
+shader_parameter/albedo = ExtResource("2_d14md")

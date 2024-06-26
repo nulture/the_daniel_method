@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://ctbnaufi1ogx7"
+path="res://.godot/imported/t_heightmap_collision.png-f4b5b46f2cdeb8314c9600371bf533c7.image"
+
+[deps]
+
+source_file="res://assets/textures/t_heightmap_collision.png"
+dest_files=["res://.godot/imported/t_heightmap_collision.png-f4b5b46f2cdeb8314c9600371bf533c7.image"]
+
+[params]
+

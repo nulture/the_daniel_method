@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://vixw73i7bxiv"
+path="res://.godot/imported/sm_firewood_0_ccx.obj-bf457954ab755d6b8ae7e8b4361cbd7c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sm_firewood_0_ccx.obj-bf457954ab755d6b8ae7e8b4361cbd7c.mesh"]
+
+source_file="res://assets/models/sm_firewood_0_ccx.obj"
+dest_files=["res://.godot/imported/sm_firewood_0_ccx.obj-bf457954ab755d6b8ae7e8b4361cbd7c.mesh", "res://.godot/imported/sm_firewood_0_ccx.obj-bf457954ab755d6b8ae7e8b4361cbd7c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

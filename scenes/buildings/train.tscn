@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bndi5gt86bv0t"]
+
+[ext_resource type="PackedScene" uid="uid://d04mrjg3wwpgn" path="res://assets/models/sm_train.glb" id="1_agofc"]
+[ext_resource type="Material" uid="uid://7n866ns8vj3t" path="res://assets/materials/m_wood_fence.tres" id="2_n7hjt"]
+[ext_resource type="Material" uid="uid://bwi8ckcl0h4so" path="res://assets/materials/m_metal_floor.tres" id="3_a4ieo"]
+[ext_resource type="Material" uid="uid://cfry2jh70c6qw" path="res://assets/materials/m_metal_wheel.tres" id="4_4kcsn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lkhwn"]
+size = Vector3(3, 4, 8)
+
+[node name="train" type="StaticBody3D"]
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_lkhwn")
+
+[node name="sm_train" parent="." instance=ExtResource("1_agofc")]
+
+[node name="train" parent="sm_train" index="0"]
+surface_material_override/0 = ExtResource("2_n7hjt")
+surface_material_override/1 = ExtResource("3_a4ieo")
+surface_material_override/2 = ExtResource("4_4kcsn")
+
+[editable path="sm_train"]

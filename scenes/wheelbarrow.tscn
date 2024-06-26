@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://cvclgdgjgslp8"]
+
+[ext_resource type="PackedScene" uid="uid://bvf3ix46s4t74" path="res://scenes/wheelbarrow_handle.tscn" id="1_w0etm"]
+[ext_resource type="Script" path="res://scripts/wheelbarrow_cart.gd" id="2_iglwl"]
+[ext_resource type="PackedScene" uid="uid://ba22fsn2cckyt" path="res://assets/models/sm_wheelbarrow.glb" id="2_o0jqh"]
+[ext_resource type="Material" uid="uid://7n866ns8vj3t" path="res://assets/materials/m_wood_fence.tres" id="3_damw6"]
+[ext_resource type="Material" uid="uid://bwi8ckcl0h4so" path="res://assets/materials/m_metal_floor.tres" id="4_8h31t"]
+[ext_resource type="Material" uid="uid://cfry2jh70c6qw" path="res://assets/materials/m_metal_wheel.tres" id="5_3kiyh"]
+[ext_resource type="Material" uid="uid://q0yybvm08sa" path="res://assets/materials/m_wood_planks.tres" id="6_bclvo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aewql"]
+size = Vector3(3, 1.5, 0.1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cb6c2"]
+friction = 0.4
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a4p1n"]
+points = PackedVector3Array(1.5, 0, 3, -1.5, 0, 3, 1.5, 0, -2, 1.5, 0.999995, 1.99961, -1.5, 0.999995, 1.99961, -1.5, 0, -2, 1.5, 0.999995, -2, -1.5, 0.999995, -2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u6uny"]
+size = Vector3(0.1, 1.5, 4)
+
+[sub_resource type="Curve3D" id="Curve3D_0x1jj"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="wheelbarrow" type="Node3D"]
+
+[node name="generic_6dof_joint_3d" type="Generic6DOFJoint3D" parent="."]
+node_a = NodePath("../cart")
+node_b = NodePath("../item_blocker")
+
+[node name="item_blocker" type="RigidBody3D" parent="."]
+collision_layer = 64
+collision_mask = 0
+
+[node name="collision_shape_3d_5" type="CollisionShape3D" parent="item_blocker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 2)
+shape = SubResource("BoxShape3D_aewql")
+
+[node name="cart" type="RigidBody3D" parent="." node_paths=PackedStringArray("handle", "cable")]
+collision_layer = 16
+collision_mask = 17
+physics_material_override = SubResource("PhysicsMaterial_cb6c2")
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -2, 0)
+script = ExtResource("2_iglwl")
+handle = NodePath("../handle")
+cable = NodePath("cable")
+tether_pull_distance = 3.0
+tether_pull_strength = 150.0
+tether_turn_strength = 500.0
+upright_strength = 100.0
+
+[node name="sm_wheelbarrow" parent="cart" instance=ExtResource("2_o0jqh")]
+
+[node name="wheelbarrow" parent="cart/sm_wheelbarrow" index="0"]
+surface_material_override/0 = ExtResource("3_damw6")
+surface_material_override/1 = ExtResource("4_8h31t")
+surface_material_override/2 = ExtResource("5_3kiyh")
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="cart"]
+shape = SubResource("ConvexPolygonShape3D_a4p1n")
+
+[node name="collision_shape_3d_2" type="CollisionShape3D" parent="cart"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.75, 0)
+shape = SubResource("BoxShape3D_u6uny")
+
+[node name="collision_shape_3d_3" type="CollisionShape3D" parent="cart"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.75, 0)
+shape = SubResource("BoxShape3D_u6uny")
+
+[node name="collision_shape_3d_4" type="CollisionShape3D" parent="cart"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, -2)
+shape = SubResource("BoxShape3D_aewql")
+
+[node name="cable" type="Path3D" parent="cart"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.393508, 3)
+curve = SubResource("Curve3D_0x1jj")
+
+[node name="csg_polygon_3d" type="CSGPolygon3D" parent="cart/cable"]
+polygon = PackedVector2Array(-0.025, -0.025, -0.025, 0.025, 0.025, 0.025, 0.025, -0.025)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("6_bclvo")
+
+[node name="handle" parent="." instance=ExtResource("1_w0etm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[editable path="cart/sm_wheelbarrow"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://s30kixldjhu5"]
+
+[ext_resource type="PackedScene" uid="uid://byvh5qmfm735q" path="res://scenes/fuel/fuel_base.tscn" id="1_rd64u"]
+[ext_resource type="PackedScene" uid="uid://dpk12lc01p44c" path="res://assets/models/sm_stick.glb" id="2_qr1i0"]
+[ext_resource type="Material" uid="uid://busnrq2h4a31y" path="res://assets/materials/m_wood_bark.tres" id="3_nqu0t"]
+[ext_resource type="Material" uid="uid://cmxjo8xnbxlm0" path="res://assets/materials/m_wood_stump.tres" id="4_n2dr4"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_v6qsk"]
+points = PackedVector3Array(0.456142, 0.0488807, -0.407966, -0.0140339, 0.187548, 0.11342, -0.218727, 0.0674362, 0.790485, -0.22258, -0.102584, 0.791714, 0.403191, -0.103639, -0.415489, -0.0939577, 0.0526431, -0.776591, -0.0880448, -0.100162, -0.740512)
+
+[node name="fuel_stick" instance=ExtResource("1_rd64u")]
+
+[node name="collider" parent="." index="0"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_v6qsk")
+
+[node name="sm_stick" parent="." index="1" instance=ExtResource("2_qr1i0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="stick" parent="sm_stick" index="0"]
+surface_material_override/0 = ExtResource("3_nqu0t")
+surface_material_override/1 = ExtResource("4_n2dr4")
+
+[node name="fuel" parent="." index="3"]
+fuel_amount = 2.0
+
+[editable path="sm_stick"]

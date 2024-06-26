@@ -1,0 +1,425 @@
+[gd_resource type="VisualShader" load_steps=35 format=3 uid="uid://csskkbdc3aok7"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_l6y43"]
+parameter_name = "albedo"
+texture_type = 1
+texture_filter = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_voboy"]
+source = 5
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeVectorLen" id="VisualShaderNodeVectorLen_v30k7"]
+
+[sub_resource type="VisualShaderNodeIf" id="VisualShaderNodeIf_gd1gb"]
+output_port_for_preview = 0
+default_input_values = [0, 0.45, 1, 5.0, 2, 0.1, 3, Vector3(1, 0, 0), 4, Vector3(0, 0, 0), 5, Vector3(1, 0, 0)]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_6ysnm"]
+input_name = "inv_view_matrix"
+
+[sub_resource type="VisualShaderNodeTransformVecMult" id="VisualShaderNodeTransformVecMult_1kk5e"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_pts2c"]
+input_name = "vertex"
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_mo4m2"]
+parameter_name = "ring_color"
+qualifier = 1
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_lkgdp"]
+parameter_name = "ring_thickness"
+qualifier = 1
+default_value = 0.15
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_gigqa"]
+parameter_name = "ring_radius"
+qualifier = 1
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_i1wka"]
+operator = 1
+
+[sub_resource type="VisualShaderNodeVec3Parameter" id="VisualShaderNodeVec3Parameter_8u1ge"]
+parameter_name = "ring_position"
+qualifier = 1
+
+[sub_resource type="VisualShaderNodeIf" id="VisualShaderNodeIf_kgb6r"]
+output_port_for_preview = 0
+default_input_values = [0, 0.45, 1, 5.0, 2, 0.1, 3, Vector3(0, 0, 0), 4, Vector3(0, 0, 0), 5, Vector3(0, 0, 0)]
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_bjear"]
+
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_vs3fp"]
+parameter_name = "visible_in_winter"
+default_value_enabled = true
+default_value = true
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_47dr2"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_504tt"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_pkw86"]
+parameter_name = "visible_in_summer"
+default_value_enabled = true
+default_value = true
+
+[sub_resource type="VisualShaderNodeTextureParameterTriplanar" id="VisualShaderNodeTextureParameterTriplanar_8q4o1"]
+parameter_name = "ring_texture"
+qualifier = 1
+texture_type = 1
+texture_filter = 1
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_rfj14"]
+input_name = "screen_uv"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_u25tb"]
+input_name = "modelview_matrix"
+
+[sub_resource type="VisualShaderNodeTransformVecMult" id="VisualShaderNodeTransformVecMult_2pjnr"]
+
+[sub_resource type="VisualShaderNodeTransformFunc" id="VisualShaderNodeTransformFunc_pouib"]
+
+[sub_resource type="VisualShaderNodeTransformVecMult" id="VisualShaderNodeTransformVecMult_qkurx"]
+
+[sub_resource type="VisualShaderNodeTransformDecompose" id="VisualShaderNodeTransformDecompose_6boxw"]
+
+[sub_resource type="VisualShaderNodeTransformCompose" id="VisualShaderNodeTransformCompose_tarnk"]
+default_input_values = [0, Vector3(1, 0, 0), 1, Vector3(0, 1, 0), 2, Vector3(0, 0, 1), 3, Vector3(0, 0, 0)]
+
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_chovh"]
+parameter_name = "face_camera"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_onr0e"]
+default_input_values = [0, false, 1, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0), 2, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+op_type = 7
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_sbfdk"]
+input_name = "modelview_matrix"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_bk0f0"]
+input_name = "vertex"
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_jjnmx"]
+parameter_name = "scale"
+default_value_enabled = true
+default_value = 0.04
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_yx5i5"]
+operator = 3
+
+[sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_b2yql"]
+function = 17
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_bt154"]
+operator = 2
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_never, cull_disabled, diffuse_lambert, specular_disabled, unshaded, shadows_disabled, vertex_lighting;
+
+uniform float scale = 0.03999999910593;
+uniform bool face_camera = false;
+uniform sampler2D albedo : source_color, filter_nearest;
+global uniform vec3 ring_position;
+global uniform float ring_radius;
+global uniform float ring_thickness;
+uniform bool visible_in_winter = true;
+uniform bool visible_in_summer = true;
+global uniform sampler2D ring_texture : source_color, filter_nearest;
+
+
+// TextureParameterTriplanar
+	vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
+		vec4 samp = vec4(0.0);
+		samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
+		samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
+		samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
+		return samp;
+	}
+
+	uniform vec3 triplanar_scale = vec3(1.0, 1.0, 1.0);
+	uniform vec3 triplanar_offset;
+	uniform float triplanar_sharpness = 0.5;
+
+	varying vec3 triplanar_power_normal;
+	varying vec3 triplanar_pos;
+
+void vertex() {
+// TextureParameterTriplanar
+	{
+		triplanar_power_normal = pow(abs(NORMAL), vec3(triplanar_sharpness));
+		triplanar_power_normal /= dot(triplanar_power_normal, vec3(1.0));
+		triplanar_pos = VERTEX * triplanar_scale + triplanar_offset;
+		triplanar_pos *= vec3(1.0, -1.0, 1.0);
+	}
+// Input:18
+	mat4 n_out18p0 = MODELVIEW_MATRIX;
+
+
+// TransformFunc:12
+	mat4 n_out12p0 = inverse(n_out18p0);
+
+
+// Input:2
+	vec3 n_out2p0 = VERTEX;
+
+
+// TransformVectorMult:11
+	vec3 n_out11p0 = (n_out18p0 * vec4(n_out2p0, 1.0)).xyz;
+
+
+// FloatParameter:3
+	float n_out3p0 = scale;
+
+
+// VectorOp:4
+	vec3 n_out4p0 = n_out11p0 / vec3(n_out3p0);
+
+
+// VectorFunc:5
+	vec3 n_out5p0 = floor(n_out4p0);
+
+
+// VectorOp:6
+	vec3 n_out6p0 = n_out5p0 * vec3(n_out3p0);
+
+
+// TransformVectorMult:13
+	vec3 n_out13p0 = (n_out12p0 * vec4(n_out6p0, 1.0)).xyz;
+
+
+// BooleanParameter:16
+	bool n_out16p0 = face_camera;
+
+
+// Input:10
+	mat4 n_out10p0 = MODELVIEW_MATRIX;
+
+
+// TransformDecompose:14
+	vec3 n_out14p0 = n_out10p0[0].xyz;
+	vec3 n_out14p1 = n_out10p0[1].xyz;
+	vec3 n_out14p2 = n_out10p0[2].xyz;
+	vec3 n_out14p3 = n_out10p0[3].xyz;
+
+
+// TransformCompose:15
+	vec3 n_in15p0 = vec3(1.00000, 0.00000, 0.00000);
+	vec3 n_in15p1 = vec3(0.00000, 1.00000, 0.00000);
+	vec3 n_in15p2 = vec3(0.00000, 0.00000, 1.00000);
+	mat4 n_out15p0 = mat4(vec4(n_in15p0, 0.0), vec4(n_in15p1, 0.0), vec4(n_in15p2, 0.0), vec4(n_out14p3, 1.0));
+
+
+	mat4 n_out17p0;
+// Switch:17
+	if (n_out16p0) {
+		n_out17p0 = n_out15p0;
+	} else {
+		n_out17p0 = n_out10p0;
+	}
+
+
+// Output:0
+	VERTEX = n_out13p0;
+	MODELVIEW_MATRIX = n_out17p0;
+
+
+}
+
+void fragment() {
+	vec4 n_out11p0;
+// Texture2D:11
+	n_out11p0 = texture(albedo, UV);
+
+
+// VectorDecompose:30
+	float n_out30p0 = n_out11p0.x;
+	float n_out30p1 = n_out11p0.y;
+	float n_out30p2 = n_out11p0.z;
+	float n_out30p3 = n_out11p0.w;
+
+
+// Vector3Parameter:21
+	vec3 n_out21p0 = ring_position;
+
+
+// Input:14
+	mat4 n_out14p0 = INV_VIEW_MATRIX;
+
+
+// Input:16
+	vec3 n_out16p0 = VERTEX;
+
+
+// TransformVectorMult:15
+	vec3 n_out15p0 = (n_out14p0 * vec4(n_out16p0, 1.0)).xyz;
+
+
+// VectorOp:20
+	vec3 n_out20p0 = n_out21p0 - n_out15p0;
+
+
+// VectorLen:12
+	float n_out12p0 = length(n_out20p0);
+
+
+// FloatParameter:19
+	float n_out19p0 = ring_radius;
+
+
+// FloatParameter:18
+	float n_out18p0 = ring_thickness;
+
+
+// BooleanParameter:24
+	bool n_out24p0 = visible_in_winter;
+
+
+// BooleanParameter:32
+	bool n_out32p0 = visible_in_summer;
+
+
+	vec3 n_out13p0;
+// If:13
+	vec3 n_in13p3 = vec3(1.00000, 0.00000, 0.00000);
+	if(abs(n_out12p0 - n_out19p0) < n_out18p0)
+	{
+		n_out13p0 = n_in13p3;
+	}
+	else if(n_out12p0 < n_out19p0)
+	{
+		n_out13p0 = vec3(n_out32p0 ? 1.0 : 0.0);
+	}
+	else
+	{
+		n_out13p0 = vec3(n_out24p0 ? 1.0 : 0.0);
+	}
+
+
+// VectorDecompose:23
+	float n_out23p0 = n_out13p0.x;
+	float n_out23p1 = n_out13p0.y;
+	float n_out23p2 = n_out13p0.z;
+
+
+// FloatOp:31
+	float n_out31p0 = n_out30p3 * n_out23p0;
+
+
+// Input:34
+	vec2 n_out34p0 = SCREEN_UV;
+
+
+// TextureParameterTriplanar:33
+	vec4 n_out33p0 = triplanar_texture(ring_texture, triplanar_power_normal, vec3(n_out34p0, 0.0));
+
+
+	vec3 n_out22p0;
+// If:22
+	vec3 n_in22p4 = vec3(0.00000, 0.00000, 0.00000);
+	vec3 n_in22p5 = vec3(0.00000, 0.00000, 0.00000);
+	if(abs(n_out12p0 - n_out19p0) < n_out18p0)
+	{
+		n_out22p0 = vec3(n_out33p0.xyz);
+	}
+	else if(n_out12p0 < n_out19p0)
+	{
+		n_out22p0 = n_in22p5;
+	}
+	else
+	{
+		n_out22p0 = n_in22p4;
+	}
+
+
+// Output:0
+	ALBEDO = vec3(n_out11p0.xyz);
+	ALPHA = n_out31p0;
+	EMISSION = n_out22p0;
+
+
+}
+"
+modes/depth_draw = 2
+modes/cull = 2
+modes/specular = 2
+flags/unshaded = true
+flags/shadows_disabled = true
+flags/vertex_lighting = true
+nodes/vertex/0/position = Vector2(800, 40)
+nodes/vertex/2/node = SubResource("VisualShaderNodeInput_bk0f0")
+nodes/vertex/2/position = Vector2(-560, 300)
+nodes/vertex/3/node = SubResource("VisualShaderNodeFloatParameter_jjnmx")
+nodes/vertex/3/position = Vector2(-560, 480)
+nodes/vertex/4/node = SubResource("VisualShaderNodeVectorOp_yx5i5")
+nodes/vertex/4/position = Vector2(60, 160)
+nodes/vertex/5/node = SubResource("VisualShaderNodeVectorFunc_b2yql")
+nodes/vertex/5/position = Vector2(200, 160)
+nodes/vertex/6/node = SubResource("VisualShaderNodeVectorOp_bt154")
+nodes/vertex/6/position = Vector2(360, 160)
+nodes/vertex/10/node = SubResource("VisualShaderNodeInput_u25tb")
+nodes/vertex/10/position = Vector2(-560, 820)
+nodes/vertex/11/node = SubResource("VisualShaderNodeTransformVecMult_2pjnr")
+nodes/vertex/11/position = Vector2(-200, 160)
+nodes/vertex/12/node = SubResource("VisualShaderNodeTransformFunc_pouib")
+nodes/vertex/12/position = Vector2(-200, 60)
+nodes/vertex/13/node = SubResource("VisualShaderNodeTransformVecMult_qkurx")
+nodes/vertex/13/position = Vector2(600, 40)
+nodes/vertex/14/node = SubResource("VisualShaderNodeTransformDecompose_6boxw")
+nodes/vertex/14/position = Vector2(-280, 820)
+nodes/vertex/15/node = SubResource("VisualShaderNodeTransformCompose_tarnk")
+nodes/vertex/15/position = Vector2(-20, 820)
+nodes/vertex/16/node = SubResource("VisualShaderNodeBooleanParameter_chovh")
+nodes/vertex/16/position = Vector2(-540, 1080)
+nodes/vertex/17/node = SubResource("VisualShaderNodeSwitch_onr0e")
+nodes/vertex/17/position = Vector2(320, 1040)
+nodes/vertex/18/node = SubResource("VisualShaderNodeInput_sbfdk")
+nodes/vertex/18/position = Vector2(-560, 60)
+nodes/vertex/connections = PackedInt32Array(4, 0, 5, 0, 5, 0, 6, 0, 2, 0, 11, 1, 11, 0, 4, 0, 12, 0, 13, 0, 3, 0, 4, 1, 3, 0, 6, 1, 10, 0, 14, 0, 14, 3, 15, 3, 16, 0, 17, 0, 13, 0, 0, 0, 6, 0, 13, 1, 10, 0, 17, 2, 18, 0, 12, 0, 18, 0, 11, 0, 15, 0, 17, 1, 17, 0, 0, 10)
+nodes/fragment/0/position = Vector2(260, 460)
+nodes/fragment/10/node = SubResource("VisualShaderNodeTexture2DParameter_l6y43")
+nodes/fragment/10/position = Vector2(-1280, 820)
+nodes/fragment/11/node = SubResource("VisualShaderNodeTexture_voboy")
+nodes/fragment/11/position = Vector2(-920, 820)
+nodes/fragment/12/node = SubResource("VisualShaderNodeVectorLen_v30k7")
+nodes/fragment/12/position = Vector2(-1280, 1140)
+nodes/fragment/13/node = SubResource("VisualShaderNodeIf_gd1gb")
+nodes/fragment/13/position = Vector2(-460, 940)
+nodes/fragment/14/node = SubResource("VisualShaderNodeInput_6ysnm")
+nodes/fragment/14/position = Vector2(-2200, 1360)
+nodes/fragment/15/node = SubResource("VisualShaderNodeTransformVecMult_1kk5e")
+nodes/fragment/15/position = Vector2(-1840, 1360)
+nodes/fragment/16/node = SubResource("VisualShaderNodeInput_pts2c")
+nodes/fragment/16/position = Vector2(-2220, 1460)
+nodes/fragment/17/node = SubResource("VisualShaderNodeColorParameter_mo4m2")
+nodes/fragment/17/position = Vector2(-1280, 160)
+nodes/fragment/18/node = SubResource("VisualShaderNodeFloatParameter_lkgdp")
+nodes/fragment/18/position = Vector2(-1280, 600)
+nodes/fragment/19/node = SubResource("VisualShaderNodeFloatParameter_gigqa")
+nodes/fragment/19/position = Vector2(-1280, 400)
+nodes/fragment/20/node = SubResource("VisualShaderNodeVectorOp_i1wka")
+nodes/fragment/20/position = Vector2(-1540, 1160)
+nodes/fragment/21/node = SubResource("VisualShaderNodeVec3Parameter_8u1ge")
+nodes/fragment/21/position = Vector2(-2200, 1140)
+nodes/fragment/22/node = SubResource("VisualShaderNodeIf_kgb6r")
+nodes/fragment/22/position = Vector2(-460, 540)
+nodes/fragment/23/node = SubResource("VisualShaderNodeVectorDecompose_bjear")
+nodes/fragment/23/position = Vector2(-260, 940)
+nodes/fragment/24/node = SubResource("VisualShaderNodeBooleanParameter_vs3fp")
+nodes/fragment/24/position = Vector2(-1280, 1260)
+nodes/fragment/30/node = SubResource("VisualShaderNodeVectorDecompose_47dr2")
+nodes/fragment/30/position = Vector2(-260, 760)
+nodes/fragment/31/node = SubResource("VisualShaderNodeFloatOp_504tt")
+nodes/fragment/31/position = Vector2(-60, 880)
+nodes/fragment/32/node = SubResource("VisualShaderNodeBooleanParameter_pkw86")
+nodes/fragment/32/position = Vector2(-1280, 1440)
+nodes/fragment/33/node = SubResource("VisualShaderNodeTextureParameterTriplanar_8q4o1")
+nodes/fragment/33/position = Vector2(-1612.23, 51.2899)
+nodes/fragment/34/node = SubResource("VisualShaderNodeInput_rfj14")
+nodes/fragment/34/position = Vector2(-1952.23, 291.29)
+nodes/fragment/connections = PackedInt32Array(10, 0, 11, 2, 14, 0, 15, 0, 16, 0, 15, 1, 15, 0, 20, 1, 20, 0, 12, 0, 21, 0, 20, 0, 12, 0, 22, 0, 19, 0, 22, 1, 18, 0, 22, 2, 12, 0, 13, 0, 18, 0, 13, 2, 19, 0, 13, 1, 13, 0, 23, 0, 11, 0, 30, 0, 23, 0, 31, 1, 30, 3, 31, 0, 22, 0, 0, 5, 31, 0, 0, 1, 11, 0, 0, 0, 32, 0, 13, 5, 24, 0, 13, 4, 34, 0, 33, 1, 33, 0, 22, 3)

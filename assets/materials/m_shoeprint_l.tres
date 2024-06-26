@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://caii2gjl7ppjc"]
+
+[ext_resource type="Shader" uid="uid://csskkbdc3aok7" path="res://assets/shaders/psx_billboard_timed.tres" id="1_rmd8n"]
+[ext_resource type="Texture2D" uid="uid://btr2tc2mh8n1n" path="res://assets/textures/t_shoeprint_l.png" id="2_7h6k6"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_rmd8n")
+shader_parameter/scale = 0.008
+shader_parameter/face_camera = false
+shader_parameter/visible_in_winter = true
+shader_parameter/visible_in_summer = false
+shader_parameter/albedo = ExtResource("2_7h6k6")

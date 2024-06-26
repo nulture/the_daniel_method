@@ -1,0 +1,13 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=3 format=3 uid="uid://cn24sosxq2pca"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bdr4l"]
+animation = &"idle_axe"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hdgap"]
+advance_mode = 2
+
+[resource]
+states/Start/position = Vector2(203, 100)
+states/idle_axe/node = SubResource("AnimationNodeAnimation_bdr4l")
+states/idle_axe/position = Vector2(530, 100)
+transitions = ["Start", "idle_axe", SubResource("AnimationNodeStateMachineTransition_hdgap")]

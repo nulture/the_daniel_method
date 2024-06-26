@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cr22arypv0stg"]
+
+[ext_resource type="Shader" uid="uid://c8sqtaqam20uc" path="res://assets/shaders/psx_billboard_ignore_fog.tres" id="1_gpdlg"]
+[ext_resource type="Texture2D" uid="uid://d0oi003jcq5fe" path="res://assets/textures/t_flare.png" id="2_qg1yr"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_gpdlg")
+shader_parameter/scale = 0.04
+shader_parameter/face_camera = true
+shader_parameter/distance_fade = 10.0
+shader_parameter/albedo = ExtResource("2_qg1yr")

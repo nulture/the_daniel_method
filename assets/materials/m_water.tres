@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://6jkgxrdl5uw"]
+
+[ext_resource type="Shader" uid="uid://evsvy6sxnnj7" path="res://assets/shaders/psx_unary_terrain.tres" id="1_3oqfs"]
+[ext_resource type="Texture2D" uid="uid://cad73sdbk0vuj" path="res://assets/textures/t_water.png" id="2_htpvg"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3oqfs")
+shader_parameter/scale = 0.04
+shader_parameter/uv_scale = Vector2(20, 20)
+shader_parameter/uv_scroll = Vector2(-0.025, -0.025)
+shader_parameter/albedo = ExtResource("2_htpvg")

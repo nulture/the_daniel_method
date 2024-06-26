@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ch44hk2nh7bwi"]
+
+[ext_resource type="Shader" uid="uid://cy8wuma7do0oh" path="res://assets/shaders/psx_unary_timed.tres" id="1_3m1fm"]
+[ext_resource type="Texture2D" uid="uid://cwq3kytrdkcvs" path="res://assets/textures/t_wood_planks.png" id="2_qtoll"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3m1fm")
+shader_parameter/scale = 0.04
+shader_parameter/visible_winter = true
+shader_parameter/visible_summer = false
+shader_parameter/albedo = ExtResource("2_qtoll")

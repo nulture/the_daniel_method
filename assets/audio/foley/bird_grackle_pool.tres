@@ -1,0 +1,20 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://dym5q8h080u4u"]
+
+[ext_resource type="AudioStream" uid="uid://cu33i72mh3l0b" path="res://assets/audio/foley/bird_grackle_00.ogg" id="1_lw64b"]
+[ext_resource type="AudioStream" uid="uid://dhvtjpabheb1o" path="res://assets/audio/foley/bird_grackle_01.ogg" id="2_ycyty"]
+[ext_resource type="AudioStream" uid="uid://cyqtuaunhcblx" path="res://assets/audio/foley/bird_grackle_02.ogg" id="3_w4f5d"]
+[ext_resource type="AudioStream" uid="uid://blkvap143atfx" path="res://assets/audio/foley/bird_grackle_03.ogg" id="4_ciux3"]
+[ext_resource type="AudioStream" uid="uid://ddiq7bw8xgqc8" path="res://assets/audio/foley/bird_cardinal_00.ogg" id="5_487ra"]
+
+[resource]
+streams_count = 5
+stream_0/stream = ExtResource("1_lw64b")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_ycyty")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_w4f5d")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_ciux3")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_487ra")
+stream_4/weight = 1.0

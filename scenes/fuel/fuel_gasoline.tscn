@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwfvctgjnr6e1"]
+
+[ext_resource type="PackedScene" uid="uid://byvh5qmfm735q" path="res://scenes/fuel/fuel_base.tscn" id="1_d55k1"]
+[ext_resource type="PackedScene" uid="uid://dp3fov3ugdrqm" path="res://assets/models/sm_gasoline.glb" id="2_c0kjh"]
+[ext_resource type="Material" uid="uid://c5lasq04b8uhp" path="res://assets/materials/m_gasoline.tres" id="3_q8oxc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_as16q"]
+size = Vector3(0.174805, 0.800781, 0.611328)
+
+[node name="fuel_gasoline" instance=ExtResource("1_d55k1")]
+
+[node name="collider" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0170898)
+shape = SubResource("BoxShape3D_as16q")
+
+[node name="sm_gasoline" parent="." index="1" instance=ExtResource("2_c0kjh")]
+
+[node name="gasoline" parent="sm_gasoline" index="0"]
+surface_material_override/0 = ExtResource("3_q8oxc")
+
+[node name="fuel" parent="." index="4"]
+fuel_amount = 25.0
+
+[editable path="sm_gasoline"]

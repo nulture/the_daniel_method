@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://cu4gsdl6jn02e"]
+
+[ext_resource type="PackedScene" uid="uid://utj12jwkloq5" path="res://assets/models/sm_tree_1.glb" id="1_s1qyf"]
+[ext_resource type="Material" uid="uid://ca7cqk85a4hrv" path="res://assets/materials/m_wood_bark_summer.tres" id="2_ph1te"]
+[ext_resource type="Material" uid="uid://bp7owc5n272co" path="res://assets/materials/m_needles_summer.tres" id="3_m8ejl"]
+[ext_resource type="Material" uid="uid://c7nvfv3806btq" path="res://assets/materials/m_wood_bark_winter.tres" id="4_f2hus"]
+[ext_resource type="Material" uid="uid://csklw0nrartns" path="res://assets/materials/m_wood_stump_winter.tres" id="5_4g452"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g838i"]
+size = Vector3(2.64941, 16.6588, 2.69629)
+
+[node name="tree_1" type="Node3D"]
+
+[node name="winter" type="StaticBody3D" parent="."]
+collision_mask = 0
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="winter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.97633, 0)
+shape = SubResource("BoxShape3D_g838i")
+
+[node name="sm_tree_1" parent="winter" instance=ExtResource("1_s1qyf")]
+
+[node name="tree_1_full" parent="winter/sm_tree_1" index="0"]
+surface_material_override/0 = ExtResource("2_ph1te")
+surface_material_override/1 = ExtResource("3_m8ejl")
+
+[node name="tree_1_stump" parent="winter/sm_tree_1" index="1"]
+surface_material_override/0 = ExtResource("4_f2hus")
+surface_material_override/1 = ExtResource("5_4g452")
+
+[editable path="winter/sm_tree_1"]

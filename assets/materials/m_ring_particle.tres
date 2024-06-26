@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dln85ggd1s0wm"]
+
+[ext_resource type="Shader" uid="uid://c8wprdcu1a5dd" path="res://assets/shaders/psx_billboard.tres" id="1_newsb"]
+[ext_resource type="Texture2D" uid="uid://d0oi003jcq5fe" path="res://assets/textures/t_flare.png" id="2_63jve"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_newsb")
+shader_parameter/scale = 0.001
+shader_parameter/face_camera = true
+shader_parameter/albedo = ExtResource("2_63jve")

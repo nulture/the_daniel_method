@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0xig65ab62b0"]
+
+[ext_resource type="PackedScene" uid="uid://cc5mxibwhigmf" path="res://assets/models/sm_canoe.glb" id="1_5h1x5"]
+[ext_resource type="Material" uid="uid://q0yybvm08sa" path="res://assets/materials/m_wood_planks.tres" id="2_g4rwp"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k6g1c"]
+points = PackedVector3Array(0.94614, 0.415689, 1.16987, -0.000185192, 0.856488, 2.99992, 0.871864, -0.441633, 0.994856, 0.94614, 0.415689, -1.17054, -0.000185192, -0.498673, 2.45314, -0.000185192, 0.856488, -3, -0.94614, 0.415689, 1.16987, -0.872049, -0.441633, 0.994856, 0.871864, -0.441633, -0.995524, -0.000185192, -0.498673, -2.45381, -0.872049, -0.441633, -0.995524, -0.94614, 0.415689, -1.17054)
+
+[node name="canoe" type="Node3D"]
+
+[node name="static_body_3d" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="static_body_3d"]
+shape = SubResource("ConvexPolygonShape3D_k6g1c")
+
+[node name="sm_canoe" parent="static_body_3d" instance=ExtResource("1_5h1x5")]
+
+[node name="canoe" parent="static_body_3d/sm_canoe" index="0"]
+surface_material_override/0 = ExtResource("2_g4rwp")
+
+[editable path="static_body_3d/sm_canoe"]

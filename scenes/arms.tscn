@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://wvohafe6n38b"]
+
+[ext_resource type="PackedScene" uid="uid://p6st37u6wgvi" path="res://assets/models/sk_arms.glb" id="1_wlbqx"]
+[ext_resource type="Material" uid="uid://bw8o3ohfn6rsi" path="res://assets/materials/m_arms.tres" id="2_0m6lr"]
+[ext_resource type="PackedScene" uid="uid://j8pgw14l5wep" path="res://scenes/axe.tscn" id="3_hs0cx"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://cn24sosxq2pca" path="res://scenes/arms_tree.tres" id="4_4n6lr"]
+
+[node name="arms" instance=ExtResource("1_wlbqx")]
+
+[node name="Skeleton3D" parent="armature" index="0"]
+bones/0/rotation = Quaternion(0, 1, 0, -7.54979e-08)
+bones/1/rotation = Quaternion(-0.574107, 0.343175, 0.254506, 0.698469)
+bones/2/rotation = Quaternion(0.129157, -0.0285551, -0.830159, 0.541608)
+bones/3/rotation = Quaternion(0.0310798, -0.0101941, -0.499446, 0.865728)
+bones/4/position = Vector3(0.0629694, 0.336297, 0.00413504)
+bones/4/rotation = Quaternion(0.705209, -0.336502, 0.432591, 0.449792)
+bones/5/rotation = Quaternion(-0.511686, -0.574386, -0.578289, 0.271736)
+bones/6/rotation = Quaternion(-0.70451, -0.105731, 0.520693, 0.470496)
+bones/7/rotation = Quaternion(-0.203139, -0.0553762, 0.533562, 0.819134)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/position = Vector3(-0.0614547, 0.32649, -0.0286584)
+bones/8/rotation = Quaternion(0.663945, -0.654825, -0.0095594, -0.360958)
+bones/8/scale = Vector3(1, 1, 1)
+
+[node name="Mesh" parent="armature/Skeleton3D" index="0"]
+material_override = ExtResource("2_0m6lr")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="armature/Skeleton3D" index="1"]
+transform = Transform3D(0.169488, -0.652296, -0.738772, 0.703685, 0.604927, -0.372679, 0.690001, -0.456698, 0.561539, 0.241348, -0.245482, -0.0370305)
+bone_name = "tool.r"
+bone_idx = 8
+
+[node name="axe" parent="armature/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("3_hs0cx")]
+transform = Transform3D(1, -2.98023e-08, 2.98023e-08, 0, 1, -8.9407e-08, -2.98023e-08, -2.98023e-08, 1, -1.49012e-08, 0.34013, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = ExtResource("4_4n6lr")
+anim_player = NodePath("../AnimationPlayer")

@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://7n866ns8vj3t"]
+
+[ext_resource type="Shader" uid="uid://cy8wuma7do0oh" path="res://assets/shaders/psx_unary_timed.tres" id="1_pd58m"]
+[ext_resource type="Texture2D" uid="uid://byqger3s6e1kk" path="res://assets/textures/t_wood_fence.png" id="2_1gpb4"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_pd58m")
+shader_parameter/scale = 0.04
+shader_parameter/always_show_ring = false
+shader_parameter/visible_winter = true
+shader_parameter/visible_summer = true
+shader_parameter/triplanar_scale = Vector3(1, 1, 1)
+shader_parameter/triplanar_offset = null
+shader_parameter/triplanar_sharpness = 0.5
+shader_parameter/albedo = ExtResource("2_1gpb4")

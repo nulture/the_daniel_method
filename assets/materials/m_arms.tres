@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bw8o3ohfn6rsi"]
+
+[ext_resource type="Shader" uid="uid://c5essd2e7o16y" path="res://assets/shaders/psx_unary.tres" id="1_vfoeh"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_vfoeh")
+shader_parameter/scale = 0.008

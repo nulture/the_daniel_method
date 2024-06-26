@@ -1,0 +1,20 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://dtueblwyfgtbm"]
+
+[ext_resource type="AudioStream" uid="uid://b0v1nlc7p1m38" path="res://assets/audio/foley/bird_blackbird_00.ogg" id="1_cxglx"]
+[ext_resource type="AudioStream" uid="uid://b3vgte7f0vfdg" path="res://assets/audio/foley/bird_blackbird_01.ogg" id="2_loqo7"]
+[ext_resource type="AudioStream" uid="uid://v3uk87bg273k" path="res://assets/audio/foley/bird_blackbird_02.ogg" id="3_6nsgg"]
+[ext_resource type="AudioStream" uid="uid://dfga1hphu153i" path="res://assets/audio/foley/bird_blackbird_03.ogg" id="4_jyqqb"]
+[ext_resource type="AudioStream" uid="uid://cd7d6nianmnfo" path="res://assets/audio/foley/bird_blackbird_04.ogg" id="5_jofyv"]
+
+[resource]
+streams_count = 5
+stream_0/stream = ExtResource("1_cxglx")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_loqo7")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_6nsgg")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_jyqqb")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_jofyv")
+stream_4/weight = 1.0

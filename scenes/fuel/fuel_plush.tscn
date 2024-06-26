@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://wj56moy1q5n7"]
+
+[ext_resource type="PackedScene" uid="uid://byvh5qmfm735q" path="res://scenes/fuel/fuel_base.tscn" id="1_dfmvx"]
+[ext_resource type="PackedScene" uid="uid://4a5cxinhehe2" path="res://assets/models/sm_plush.glb" id="2_8pik2"]
+[ext_resource type="Material" uid="uid://g3sb7w2okgnq" path="res://assets/materials/m_plush.tres" id="3_apjlx"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nfdcl"]
+points = PackedVector3Array(-8.57115e-05, 0.480785, 0.661638, 0.43772, 1.00636, 0.0989058, -0.43772, 1.00636, 0.0989058, -0.338316, -0.377469, 0.516355, 0.33823, -0.377469, 0.516355, 0.43772, 0.838121, -0.512469, -0.43772, 0.838121, -0.512469, -0.254423, -0.34076, -0.652991, 0.254337, -0.34076, -0.652991)
+
+[node name="fuel_plush" instance=ExtResource("1_dfmvx")]
+
+[node name="collider" parent="." index="0"]
+shape = SubResource("ConvexPolygonShape3D_nfdcl")
+
+[node name="sm_plush" parent="." index="1" instance=ExtResource("2_8pik2")]
+
+[node name="plush" parent="sm_plush" index="0"]
+surface_material_override/0 = ExtResource("3_apjlx")
+
+[node name="fuel" parent="." index="4"]
+fuel_amount = 0.0
+
+[editable path="sm_plush"]
